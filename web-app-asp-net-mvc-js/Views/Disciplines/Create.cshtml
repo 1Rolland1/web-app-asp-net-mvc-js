@@ -1,0 +1,26 @@
+﻿@using web_app_asp_net_mvc_js.Models
+@model Discipline
+
+@{
+    Layout = null;
+    var controllerName = "Disciplines";
+    var actionName = "Create";
+    var enctype = "application/x-www-form-urlencoded";
+}
+
+
+
+<h3>Дисциплина</h3>
+
+@using (Html.BeginForm(actionName, controllerName, FormMethod.Post, new { @enctype = enctype }))
+{
+    @Html.EditorForModel()
+
+    <button class="btn btn-primary" onclick="Post('@controllerName','@actionName', '@enctype')">Сохранить</button>
+    @Html.ActionLink("Отменить", "Index", controllerName, null, new { @class = "btn btn-danger" })
+}
+
+
+
+
+

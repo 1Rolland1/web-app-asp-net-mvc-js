@@ -1,0 +1,38 @@
+﻿@using web_app_asp_net_mvc_js.Models
+@model Nationality
+
+
+@{
+    Layout = null;
+    var controllerName = "Nationalitys";
+    var actionName = "Create";
+    var enctype = "application/x-www-form-urlencoded";
+}
+
+
+
+<h3>Язык</h3>
+
+@using (Html.BeginForm(actionName, controllerName, FormMethod.Post, new { @enctype = enctype }))
+{
+    @Html.EditorForModel()
+
+    <button class="btn btn-primary" onclick="Post('@controllerName','@actionName', '@enctype')">Сохранить</button>
+    @Html.ActionLink("Отменить", "Index", controllerName, null, new { @class = "btn btn-danger" })
+}
+
+
+
+
+
+@*<fieldset>
+        <legend>Пожалуйста, заполните необходимые поля</legend>
+        @using (Html.BeginForm("Create", "Nationalitys", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+        {
+            @Html.EditorForModel()
+
+            <input type="submit" value="Сохранить" class="btn btn-secondary" />
+            @Html.ActionLink("Отменить", "Index", "Nationalitys", null, new { @class = "btn btn-danger" })
+        }
+    </fieldset>*@
+

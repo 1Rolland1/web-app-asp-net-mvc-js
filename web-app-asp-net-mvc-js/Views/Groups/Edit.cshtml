@@ -1,0 +1,27 @@
+﻿@using web_app_asp_net_mvc_js.Models
+@model Group
+
+
+@{
+    Layout = null;
+    var controllerName = "Groups";
+    var actionName = "Edit";
+    var enctype = "application/x-www-form-urlencoded";
+}
+
+
+
+<h3>Группа</h3>
+
+@using (Html.BeginForm(actionName, controllerName, FormMethod.Post, new { @enctype = enctype }))
+{
+    @Html.EditorForModel()
+
+    <button class="btn btn-primary" onclick="Post('@controllerName','@actionName', '@enctype')">Сохранить</button>
+    @Html.ActionLink("Отменить", "Index", controllerName, null, new { @class = "btn btn-danger" })
+}
+
+
+
+
+

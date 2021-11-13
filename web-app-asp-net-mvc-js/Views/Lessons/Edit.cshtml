@@ -1,0 +1,21 @@
+﻿@using web_app_asp_net_mvc_js.Models
+@model Lesson
+
+@{
+    Layout = null;
+    var controllerName = "Lessons";
+    var actionName = "Edit";
+    var enctype = "multipart/form-data";
+}
+
+
+<h3>Пара</h3>
+
+@using (Html.BeginForm(actionName, controllerName, FormMethod.Post, new { @enctype = enctype }))
+{
+    @Html.EditorForModel()
+
+    <button class="btn btn-primary" onclick="Post('@controllerName','@actionName')">Сохранить</button>
+    @Html.ActionLink("Отменить", "Index", controllerName, null, new { @class = "btn btn-danger" })
+}
+
